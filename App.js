@@ -10,71 +10,81 @@ class App extends Component {
 render() {
   return (
     
-      <View style= {styles.View}>
-      <Image source={require("./AssetImage/grocery.png")} style={{width:200, height:50, marginTop:100}}/>
+      <View style= {styles.container}>
+      <Image source={require("./AssetImage/grocery.png")} style={styles.image}/>
        <Text style={{margin:20, fontSize:20}}>Welcome Back!</Text>
         <View>
-           <Text style={{fontSize:15, marginLeft:60}}>Email</Text>
+           <Text style={{fontSize:15, marginLeft:50}}>Email</Text>
            <View>
-         <View style={{flexDirection:'row',margin:10}}>
-        <Image style={styles.icon} source={require('./AssetImage/email-icon.jpeg')}/>
+         <View style={styles.emailicon}>
+        <Image source={require('./AssetImage/email-icon.jpeg')} style={styles.icon} />
         <TextInput placeholder= "Email" style={styles.placeholder}></TextInput>
         </View>
         </View>
         </View>
       <View>
-        <Text style={{fontSize:15, marginLeft:20}}>Password</Text>
+        <Text style={styles.password}>Password</Text>
        <View>
-        <View style={{flexDirection:'row'}}>
-          <Image style={{width:14.45, height:14, marginTop:20}} source={require('./AssetImage/pass-icon.png')}/> 
+        <View style={{flexDirection:'row', marginLeft:10}}>
+          <Image style={styles.imageText} source={require('./AssetImage/pass-icon.png')}/> 
       <TextInput placeholder= "Password" style= {styles.placeholder}></TextInput>
-      <Image style={{marginRight:5, height:20, width:20, marginTop:26}} source={require('./AssetImage/eye-icon.png')}/>
+      <Image style={styles.eye} source={require('./AssetImage/eye-icon.png')}/>
       </View>
       </View>
       </View>
-      <View style={{margin:10, paddingTop:10}}>
+      <View style={{margin:10, paddingTop:20}}>
       <Button onPress={this.ForgotPassword} title="Forgot Password?" color="green"/>
       </View>
-        <View style={{backgroundColor:'green', height:40, width:100}}>
+        <View style={styles.login}>
             <Button onPress={this.login} title="Login" color="white"/>
             </View> 
      
-        <View style={{flexDirection: 'row', alignItems: 'center', padding:20}}>
-        <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+        <View style={{flexDirection:'row', alignItems:'center', padding:30}}>
+        <View style={styles.line} />
        <View>
-       <Text style={{width: 50, textAlign: 'center'}}>OR</Text>
+       <Text style={{width:50, textAlign:'center'}}>OR</Text>
        </View>
-     <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+     <View style={styles.line} />
      </View>
        
       
-      <Text style= {{fontSize:18, fontWeight:'bold', borderRadius:5, margin:10}}>Continue With</Text>
+      <Text style= {styles.continuewith}>Continue With</Text>
       <View style={styles.button}>
-          <View style={{flexDirection:'row', backgroundColor:'blue',height:50, marginBottom:10, marginRight:10}}>
+          <View style={styles.facebook}>
             <Image source={require('./AssetImage/facebook-icon.webp')} style={{height:50,width:50}}/>
             <Button onPress={this.facebook} title="Facebook" color="white"/>
             </View>
             
-          <View style={{borderRadius:2,borderWidth:1 ,flexDirection:'row',height:50, fontSize:10, marginLeft:10}}>
+          <View style={styles.google}>
             <Image source={require('./AssetImage/google-logo.png')} style={{height:40, width:40}}/>
             <Button onPress={this.google} title= "Google" color="black"/>  
           </View>
           </View>
-          <View style={{flexDirection: 'row'}} >
-        <Text style={styles.bottomline}>Don't have an account?</Text>
-        <Text style={styles.bottomlineGreen}>Register here</Text>
-        </View>
-        </View>
-      
-  );
-            }
-          }
+          <View style={{flexDirection:'row'}}>
+        <Text style={styles.paragraph}>Don't have an account?</Text>
+          <Text style={styles.highlight}>Register here</Text>
+    </View>
+    </View>
+         );
+  }
+  }
+          
 const styles= StyleSheet.create({
-  View:{
+  container:{
     alignItems:'center',
     paddingTop:20,
     paddingHorizontal: 12,
-    backgroungColor: 'white',
+    backgroungColor: 'white'
+   },
+   image:{
+    width:200, 
+    height:50, 
+    marginTop:100
+   },
+   emailicon:{
+    flexDirection:'row',
+    margin:10, 
+    marginRight:30,
    },
   placeholder:{
     margin:1,
@@ -87,9 +97,48 @@ const styles= StyleSheet.create({
       borderRightColor:"white",
       borderTopColor:"white"  
    },
-   button:{
+  password:{
+    fontSize:15, 
+    marginLeft:20, 
+    padding:10
+  },
+  imageText:{
+    width:14, 
+    height:14, 
+    marginTop:20
+  },
+  eye:{
+    marginRight:5, 
+    height:20, 
+    width:20, 
+    marginTop:26
+  },
+  login:{
+    backgroundColor:'green', 
+    height:40, 
+    width:100, 
+    margin:10
+  },
+  line:{
+   flex: 1, 
+   height: 1, 
+   backgroundColor: 'black'
+  },
+ continuewith:{
+   fontSize:18, 
+   fontWeight:'bold', 
+   margin:10
+ },
+  button:{
     flexDirection:'row',
-    padding:10,
+    padding:20,
+  },
+  facebook:{
+    flexDirection:'row', 
+    backgroundColor:'blue',
+    height:50, 
+    marginBottom:10, 
+    marginRight:10
   },
   icon:{
     height:20,
@@ -98,12 +147,20 @@ const styles= StyleSheet.create({
     marginLeft:10,
     marginRight:10
    },
-  bottomline:{
-    marginTop:25,
+   google:{
+    borderRadius:2,
+    borderWidth:1 ,
+    flexDirection:'row',
+    height:50, 
+    fontSize:10, 
+    marginLeft:10
+   },
+  paragraph:{
+    marginTop:18,
     fontSize:15
   },
-  bottomlineGreen:{
-    marginTop:25,
+  highlight:{
+    marginTop:18,
     color:"green",
     fontSize:15
   },
